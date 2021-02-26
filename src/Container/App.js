@@ -6,6 +6,7 @@ import Signin from '../Component/Signin';
 import Signup from '../Component/Signup';
 import { connect } from 'react-redux';
 import { history } from '../index.js';
+import *as action from '../Action/tableAction'
 
 
 class App extends React.Component{
@@ -25,13 +26,15 @@ class App extends React.Component{
 
 function mapStateToProps(state){
   return{
-    positionData:state.table.positionData,
+    cells:state.table.cells,
   }
 }
 
 function mapDispatchToProps(dispatch){
   return{
-
+    getStatus(){
+      dispatch(action.getStatus());
+    }
   }
 }
 

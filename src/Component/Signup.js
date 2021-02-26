@@ -1,6 +1,6 @@
 import './Signup.css';
 import React from 'react';
-import axios from 'axios';
+import axios from '../axiosWrapper';
 
 
 
@@ -30,13 +30,9 @@ class Signup extends React.Component{
         </div>
         <button
         onClick={()=>{
-          axios({
-            method: 'post', 
-            url: 'http://localhost:3000/api/users', 
-            withCredentials: true, 
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            data: { name:this.state.name, password:this.state.password },
-          })}}>
+          axios.post('users', {
+            name:this.state.name,
+            password:this.state.password})}}>
           登録
           </button>
       </div>

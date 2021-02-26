@@ -1,21 +1,18 @@
 
 
 const initialState={
-  positionData:[
-    [{position:1}, {position:0}, {position:0}, {position:0}, {position:0}],
-    [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
-    [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
-    [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
-    [{position:0}, {position:0}, {position:0}, {position:0}, {position:2}],
-  ],
+  cells:[],
 }
 
-console.log(initialState)
 
 export function tableReducer(state=initialState, action){
-  return(
-    {
-      ...state,
-    }
-  )
+  switch(action.type){
+    case 'REFLECT':
+      return({
+        ...state,
+        cells:action.cells,
+      })
+    default:
+      return state;
+  }
 }

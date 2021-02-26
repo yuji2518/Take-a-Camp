@@ -1,7 +1,8 @@
 import './Signin.css';
 import React from 'react';
-import axios from 'axios';
+import axios from '../axiosWrapper';
 import { Link } from 'react-router-dom';
+import {history} from '../index';
 
 
 
@@ -30,27 +31,23 @@ class Signin extends React.Component{
           <input type='text' placeholder='password' onChange={(event)=>this.onChangePassword(event)}/>
         </div>
         <button
-        onClick={()=>
-          {
-            axios({
-            method: 'post', 
-            url: 'http://localhost:3000/api/session', 
-            withCredentials: true, 
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            data: { name:this.state.name, password:this.state.password },
-          })
+        onClick={()=>{
+            axios.post('session', {
+              name:this.state.name,
+              password:this.state.password
+            })
+            .then(()=>{
+              this.props.getStatus()
+            })
+            .catch(()=>{
+              history.push('/')
+            })
           }}>
           ログイン
           </button>
           <button
           onClick={()=>{
-            axios({
-            method: 'delete', 
-            url: 'http://localhost:3000/api/session', 
-            withCredentials: true, 
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            data: { },
-            })
+            axios.delete('session')
           }}>ログアウト</button>
         <div>
           <Link to='/Signup'>まだ登録してない？</Link>
