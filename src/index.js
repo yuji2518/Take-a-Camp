@@ -4,6 +4,9 @@ import App from './Container/App';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { tableReducer } from './Reducer/tableReducer';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
+
+export const history=createBrowserHistory();
 
 const store=createStore(
   combineReducers({
