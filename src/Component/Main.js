@@ -3,47 +3,39 @@ import './Main.css';
 
 
 function Main ({positionData}){
-  console.log(positionData)
+  console.log(positionData.length)
   return(
     <div>
       <p>Main</p>
       <table>
-        <tr>
-          <td>(0,0)</td>
-          <td>(0,1)</td>
-          <td>(0,2)</td>
-          <td>(0,3)</td>
-          <td>(0,4)</td>
-        </tr>
-        <tr>
-          <td>(1,0)</td>
-          <td>(1,1)</td>
-          <td>(1,2)</td>
-          <td>(1,3)</td>
-          <td>(1,4)</td>
-        </tr>
-        <tr>
-          <td>(2,0)</td>
-          <td>(2,1)</td>
-          <td>(2,2)</td>
-          <td>(2,3)</td>
-          <td>(2,4)</td>
-        </tr>
-        <tr>
-          <td>(3,0)</td>
-          <td>(3,1)</td>
-          <td>(3,2)</td>
-          <td>(3,3)</td>
-          <td>(3,4)</td>
-        </tr>
-        <tr>
-          <td>(4,0)</td>
-          <td>(4,1)</td>
-          <td>(4,2)</td>
-          <td>(4,3)</td>
-          <td>(4,4)</td>
-        </tr>
+        <thead>
+          {
+            positionData.map(function(rowCells, i){
+              return(
+                <tr key={i}>
+                {
+                  positionData[i].map(function(cell, j){
+                    if(cell.position===1){
+                      return(
+                        <td key={i*10+j} style={{background:'#2D9CDB'}}>({i},{j})</td>
+                      )}else if (cell.position===2) {
+                        return(
+                          <td key={i*10+j} style={{background:'#DB2D2D'}}>({i},{j})</td>
+                        )}else{
+                          return(
+                            <td key={i*10+j}>({i},{j})</td>
+                          )
+                        }
+                      }
+                    )
+                  }
+                </tr>
+              )
+            })
+          }
+        </thead>
       </table>
+
     </div>
   )
 }

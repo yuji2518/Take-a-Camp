@@ -2,11 +2,11 @@
 
 const initialState={
   positionData:[
+    [{position:1}, {position:0}, {position:0}, {position:0}, {position:0}],
     [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
     [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
     [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
-    [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
-    [{position:0}, {position:0}, {position:0}, {position:0}, {position:0}],
+    [{position:0}, {position:0}, {position:0}, {position:0}, {position:2}],
   ],
 }
 

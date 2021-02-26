@@ -42,6 +42,16 @@ class Signin extends React.Component{
           }}>
           ログイン
           </button>
+          <button
+          onClick={()=>{
+            axios({
+            method: 'delete', 
+            url: 'http://localhost:3000/api/session', 
+            withCredentials: true, 
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            data: { },
+            })
+          }}>ログアウト</button>
         <div>
           <Link to='/Signup'>まだ登録してない？</Link>
         </div>
