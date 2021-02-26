@@ -1,7 +1,9 @@
 import './Main.css';
 
 
-function Main (){
+
+function Main ({positionData}){
+  console.log(positionData)
   return(
     <div>
       <p>Main</p>

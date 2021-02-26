@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
 import Main from '../Component/Main';
+import { connect } from 'react-redux';
 
 
 class App extends React.Component{
@@ -8,11 +9,23 @@ class App extends React.Component{
     return(
       <Router>
         <Switch>
-          <Route exact path='/' render={()=><Main/>}/>
+          <Route exact path='/' render={()=><Main {...this.props}/>}/>
         </Switch>
       </Router>
     )
   }
 }
 
-export default App;
+function mapStateToProps(state){
+  return{
+    positionData:state.table.positionData,
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
