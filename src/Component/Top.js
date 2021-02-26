@@ -5,7 +5,7 @@ function Top (){
   return(
     <div>
       <p>Top</p>
-      <button onClick={()=>{history.push('/Main')}}>Next</button>
+      <button onClick={()=>{history.push('/Signin')}}>Next</button>
     </div>
   )
 }
