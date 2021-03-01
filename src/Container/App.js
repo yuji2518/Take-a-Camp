@@ -6,7 +6,8 @@ import Signin from '../Component/Signin';
 import Signup from '../Component/Signup';
 import { connect } from 'react-redux';
 import { history } from '../index.js';
-import *as action from '../Action/tableAction'
+import *as tableAction from '../Action/tableAction'
+import *as userAction from '../Action/userAction'
 
 
 class App extends React.Component{
@@ -15,9 +16,9 @@ class App extends React.Component{
       <Router history={history}>
         <Switch>
           <Route exact path='/' render={()=><Top {...this.props}/>}/>
-          <Route exact path='/Signin' render={()=><Signin {...this.props}/>}/>
-          <Route exact path='/Signup' render={()=><Signup {...this.props}/>}/>
-          <Route exact path='/Main' render={()=><Main {...this.props}/>}/>
+          <Route exact path='/signin' render={()=><Signin {...this.props}/>}/>
+          <Route exact path='/signup' render={()=><Signup {...this.props}/>}/>
+          <Route exact path='/main' render={()=><Main {...this.props}/>}/>
         </Switch>
       </Router>
     )
@@ -26,15 +27,18 @@ class App extends React.Component{
 
 function mapStateToProps(state){
   return{
-    cells:state.table.cells,
+    cells: state.table.cells,
   }
 }
 
 function mapDispatchToProps(dispatch){
   return{
-    getStatus(){
-      dispatch(action.getStatus());
-    }
+    getStatus: () => dispatch(tableAction.getStatus()),
+    login: (username, password) => dispatch(userAction.login(username, password)),
+    signup: (username, password) => dispatch(userAction.signup(username, password)),
+    authenticateUser: () => dispatch(userAction.authenticateUser()),
+    logout: () => dispatch(userAction.logout()),
+    redirectToMain: () => dispatch(userAction.redirectToMain())
   }
 }
 
