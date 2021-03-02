@@ -5,13 +5,15 @@ import React from 'react';
 class UserForm extends React.Component{
   constructor(props){
     super(props);
-    this.state={name:'', password:''}
-
+    this.state = {
+      name: '', 
+      password: ''
+    }
     this.onChangeName=this.onChangeName.bind(this);
     this.onChangePassword=this.onChangePassword.bind(this);
   }
   componentDidMount(){
-    this.props.redirectToMain()
+    this.props.redirectToMap()
   }
   onChangeName(event){
     this.setState({name:event.target.value})
