@@ -1,9 +1,9 @@
 import React from "react"
-import './Map.css';
+import '../Component/Map.css';
 import { connect } from 'react-redux';
 import *as mapAction from '../Action/mapAction'
 import *as userAction from '../Action/userAction'
-import Dialog from "./Dialog";
+import Dialog from "../Component/Dialog";
 
 
 class Map extends React.Component{

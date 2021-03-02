@@ -1,5 +1,5 @@
 import React from 'react';
-import UserForm from './UserForm';
+import UserForm from '../Component/UserForm';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import *as userAction from '../Action/userAction'

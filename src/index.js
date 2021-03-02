@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Container/App';
+import App from './Component/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { mapReducer } from './Reducer/mapReducer';
 import { userReducer } from "./Reducer/userReducer"

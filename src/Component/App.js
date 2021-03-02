@@ -1,9 +1,9 @@
 import { Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
-import Map from '../Component/Map';
-import Top from '../Component/Top';
-import Signin from '../Component/Signin';
-import Signup from '../Component/Signup';
+import Map from '../Container/Map';
+import Top from './Top';
+import Signin from '../Container/Signin';
+import Signup from '../Container/Signup';
 import { history } from '../index.js';
 
 
