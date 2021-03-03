@@ -71,6 +71,10 @@ class Map extends React.Component{
         <Dialog unselect = {this.props.unselect} postVote = {this.props.postVote} selected_cell_id = {this.props.selected_cell_id} /> : "" }
 
         {this.props.hasVote ? (<p className="finish-vote">投票は終了しました</p>) : ""}
+
+        <button className="logout-button" onClick = {() => this.props.logout()}>
+          <img src={`${process.env.PUBLIC_URL}/logout.png`} alt="" />
+        </button>
       </div>
     )  
   }

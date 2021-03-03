@@ -59,4 +59,15 @@ td img{
   font-size: 18px;
 }
 
+.logout-button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
 

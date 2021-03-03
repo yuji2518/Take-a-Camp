@@ -7,8 +7,9 @@ export const login = (username, password) => {
       .then(() => {
         history.push("/map")
       })
-      .catch(() => {
+      .catch((error) => {
         history.push("/signin")
+        alert(error.response.data.error[0])
       })
     }
 }
@@ -16,11 +17,13 @@ export const login = (username, password) => {
 export const signup = (username, password) => {
     return () => {
       return axios.post('users', {name: username, password: password})
-      .then(() => {
+      .then((res) => {
         history.push("/map")
+        res.data.team_id === 1 ? alert("あなたは赤チームです") : alert("あなたは青チームです")    
       })
-      .catch(() => {
+      .catch((error) => {
         history.push("/signup")
+        alert(error.response.data.error[0])
       })
     }
 }
@@ -76,7 +79,8 @@ export const postVote = (cell_id) => {
     .then(() => {
       dispatch(finishVote())
     }) 
-    .catch(() => {
+    .catch((error) => {
+      alert(error.response.data.error[0])
     })
   }
 }
