@@ -1,3 +1,36 @@
-body{
-  background-color: #FEF8EC;
+.user-form input{
+  width: 80%;
+  margin: 20px auto;
+  display: block;
+  font-size: 13px;
+  padding: 13px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+.user-form button{
+  width: calc(80% + 26px);
+  margin: 50px auto;
+  display: block;
+  font-size: 18px;
+  background-color: #f2c94c;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+.user-form-title{
+  width: calc(80% + 26px);
+  margin: 130px auto 30px auto;
+}
+
+.user-form-link{
+  width: 100%;
+  text-align: center;
+}
+
+.user-form-link a{
+  color: #707070;
+  font-size: 13px;
 }

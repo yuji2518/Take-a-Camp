@@ -13,9 +13,9 @@ class Signup extends React.Component{
   render(){
     return(
       <div>
-        <p>signup</p>
+        <h2 className="user-form-title">登録</h2>
         <UserForm submit = {this.props.signup} redirectToMap = {this.props.redirectToMap} button = "登録" />
-        <div>
+        <div className="user-form-link">
           <Link to='/signin'>もう登録した？</Link>
         </div>
       </div>

@@ -5,6 +5,7 @@ import Top from './Top';
 import Signin from '../Container/Signin';
 import Signup from '../Container/Signup';
 import { history } from '../index.js';
+import "./App.css"
 
 
 class App extends React.Component{

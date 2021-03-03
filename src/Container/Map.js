@@ -15,30 +15,62 @@ class Map extends React.Component{
   }
   render(){
     return(
-      <div>
-        <p>Map</p>
-        <button onClick = {() => this.props.logout()}>ログアウト</button>
+      <div className="map">
+        <div className="team-status">
+          <div className="team-1-status"><span>●</span>{this.props.points[0]}pt</div>
+          <div className="team-2-status"><span>●</span>{this.props.points[1]}pt</div>
+        </div>
         <table>
-          <thead>
+          <tbody>
             {
               this.props.cells.map((rowCells, i) => (
                 <tr key={i}>
                   {rowCells.map((cell, j) => {
-                    return(
-                      cell.id === this.props.selected_cell_id ? 
-                      (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}></td>) : 
-                      (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}></td>)  
-                    )
+                    switch (cell.point) {
+                      case 1:
+                        return(
+                          cell.id === this.props.selected_cell_id ? 
+                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}></td>) : 
+                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}></td>)  
+                        ) 
+                      case 2:
+                        return(
+                          cell.id === this.props.selected_cell_id ? 
+                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}>
+                            <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
+                          </td>) : 
+                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}>
+                            <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
+                          </td>)  
+                        ) 
+                      case 3:
+                        return(
+                          cell.id === this.props.selected_cell_id ? 
+                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}>
+                             <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
+                           </td>) : 
+                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}>
+                             <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
+                           </td>)  
+
+                        )                  
+                      default:
+                        return(
+                          cell.id === this.props.selected_cell_id ? 
+                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}></td>) : 
+                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}></td>)  
+                        )                  
+                    }
                   })}
                 </tr>
               ))
             }
-          </thead>
+          </tbody>
         </table>
         {this.props.selected_cell_id && !this.props.hasVote ? 
         <Dialog unselect = {this.props.unselect} postVote = {this.props.postVote} selected_cell_id = {this.props.selected_cell_id} /> : "" }
 
-        {this.props.hasVote ? (<p>投票は終了しました</p>) : ""}
+        {this.props.hasVote ? (<p className="finish-vote">投票は終了しました</p>) : ""}
       </div>
     )  
   }
@@ -48,7 +80,8 @@ function mapStateToProps(state){
   return{
     cells: state.map.cells,
     selected_cell_id: state.map.selected_cell_id,
-    hasVote: state.user.hasVote
+    hasVote: state.user.hasVote,
+    points: state.map.points
   }
 }
 

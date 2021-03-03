@@ -1,5 +1,18 @@
 table{
-  margin: auto;
+  display: block;
+  overflow: scroll;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  height: 70vh;
+}
+
+table::-webkit-scrollbar {
+  display:none;
+}
+
+table tbody {
+  width: 600px;
+  display:table;
 }
 
 td{
@@ -19,3 +32,31 @@ table .team_1{
 table .team_2{
   background-color: #2d9cdb;
 }
+
+.team-status{
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  font-size: 20px;
+}
+
+.team-1-status span{
+  color: #db2d2d;
+  margin-right: 10px;
+}
+
+.team-2-status span{
+  color: #2d9cdb;
+  margin-right: 10px;
+}
+
+td img{
+  margin-left: 14px;
+}
+
+.finish-vote{
+  text-align: center;
+  font-size: 18px;
+}
+
+

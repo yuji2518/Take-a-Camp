@@ -5,7 +5,7 @@ export const login = (username, password) => {
     return () => {
       return axios.post('session', {name: username, password: password})
       .then(() => {
-        history.push("/Map")
+        history.push("/map")
       })
       .catch(() => {
         history.push("/signin")
@@ -17,7 +17,7 @@ export const signup = (username, password) => {
     return () => {
       return axios.post('users', {name: username, password: password})
       .then(() => {
-        history.push("/Map")
+        history.push("/map")
       })
       .catch(() => {
         history.push("/signup")
@@ -44,7 +44,7 @@ export const redirectToMap = () => {
       return axios.get('session')
       .then((res) => {
         if(res.data.name){
-          history.push("/Map")
+          history.push("/map")
         }
       })
       .catch(() => {

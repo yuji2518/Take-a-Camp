@@ -1,6 +1,7 @@
 const initialState={
   cells:[],
-  selected_cell_id: null
+  selected_cell_id: null,
+  points: []
 }
 
 
@@ -9,7 +10,8 @@ export function mapReducer(state=initialState, action){
     case 'REFLECT':
       return({
         ...state,
-        cells:action.cells,
+        cells: action.cells,
+        points: action.points
       })
     case "SELECT_CELL":
       return({
