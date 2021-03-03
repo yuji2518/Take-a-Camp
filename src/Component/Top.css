@@ -1,0 +1,22 @@
+
+.wrapAll{
+  margin-top: 90px
+}
+
+h1{
+  text-align: center;
+}
+
+.wrapStartBtn{
+  text-align: center;
+}
+.startBtn{
+  border: none;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  width: 150px;
+  height: 54px;
+  border-radius: 5px;
+  font-size: 20px;
+}
