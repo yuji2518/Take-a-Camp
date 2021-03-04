@@ -7,9 +7,6 @@ import Dialog from "../Component/Dialog";
 
 
 class Map extends React.Component{
-  constructor(props){
-    super(props);
-  }
   componentDidMount(){
     this.props.getStatus()
   }

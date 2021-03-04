@@ -7,9 +7,6 @@ import *as userAction from '../Action/userAction'
 
 
 class Signup extends React.Component{
-  constructor(props){
-    super(props)
-  }
   render(){
     return(
       <div>

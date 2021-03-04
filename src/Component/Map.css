@@ -3,7 +3,7 @@ table{
   overflow: scroll;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-  height: 70vh;
+  height: 60vh;
 }
 
 table::-webkit-scrollbar {
@@ -12,6 +12,7 @@ table::-webkit-scrollbar {
 
 table tbody {
   width: 600px;
+  margin: 0 auto;
   display:table;
 }
 

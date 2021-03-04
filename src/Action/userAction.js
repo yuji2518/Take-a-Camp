@@ -9,7 +9,7 @@ export const login = (username, password) => {
       })
       .catch((error) => {
         history.push("/signin")
-        alert(error.response.data.error[0])
+        alert(error.response.data.error)
       })
     }
 }
