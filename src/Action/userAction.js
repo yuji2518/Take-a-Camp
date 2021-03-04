@@ -4,7 +4,8 @@ import { history } from '../index';
 export const login = (username, password) => {
     return () => {
       return axios.post('session', {name: username, password: password})
-      .then(() => {
+      .then((res) => {
+        localStorage.setItem("token", res.headers['x-authentication-token'])
         history.push("/map")
       })
       .catch((error) => {
@@ -18,6 +19,7 @@ export const signup = (username, password) => {
     return () => {
       return axios.post('users', {name: username, password: password})
       .then((res) => {
+        localStorage.setItem("token", res.headers['x-authentication-token'])
         history.push("/map")
         res.data.team_id === 1 ? alert("あなたは赤チームです") : alert("あなたは青チームです")    
       })
@@ -35,6 +37,8 @@ export const authenticateUser = () => {
       .then((res) => {
         if(res.data.name == null){
           history.push("/signin")
+        }else{
+          localStorage.setItem("token", res.headers['x-authentication-token'])
         }
       })
       .catch(() => {
@@ -53,24 +57,6 @@ export const redirectToMap = () => {
       .catch(() => {
       })
     }
-}
-
-export const logout = () => {
-    return (dispatch) => {
-      return axios.delete("session")
-      .then(() => {
-        history.push("/signin")
-        dispatch(successLogout())
-      })
-      .catch(() => {
-      })
-    }
-}
-
-export const successLogout = () => {
-  return({
-    type: "SUCCESS_LOGOUT"
-  })
 }
 
 export const postVote = (cell_id) => {

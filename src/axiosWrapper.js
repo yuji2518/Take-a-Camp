@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL:'https://take-a-camp-api.herokuapp.com/api/',
-  withCredentials:true,
+  baseURL:'http://localhost:3000/api/',
 })
 
 client.interceptors.request.use(
   config => {
-    config.headers['X-Requested-With']='XMLHttpRequest'
+    config.headers['Authorization'] = `Bearer ${localStorage.getItem("token")}`
     return config;
   }
 )

@@ -69,8 +69,8 @@ class Map extends React.Component{
 
         {this.props.hasVote ? (<p className="finish-vote">投票は終了しました</p>) : ""}
 
-        <button className="logout-button" onClick = {() => this.props.logout()}>
-          <img src={`${process.env.PUBLIC_URL}/logout.png`} alt="" />
+        <button className="info-button">
+          <img src={`${process.env.PUBLIC_URL}/info.png`} alt="" />
         </button>
       </div>
     )  
@@ -91,7 +91,6 @@ function mapDispatchToProps(dispatch){
     getStatus: () => dispatch(mapAction.getStatus()),
     selectCell: (cell_id) => dispatch(mapAction.selectCell(cell_id)),
     unselect: () => dispatch(mapAction.unselect()),
-    logout: () => dispatch(userAction.logout()),
     postVote: (cell_id) => dispatch(userAction.postVote(cell_id))
   }
 }
