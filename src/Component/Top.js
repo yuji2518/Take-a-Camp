@@ -1,11 +1,13 @@
 import { history } from '../index.js';
-
+import './Top.css'
 
 function Top (){
   return(
-    <div>
-      <p>Top</p>
-      <button onClick={()=>{history.push('/map')}}>Next</button>
+    <div className='wrapAll'>
+      <h1>Take a Camp</h1>
+      <div className='wrapStartBtn'>
+        <button className='startBtn' onClick={()=>{history.push('/map')}}>START</button>
+      </div>
     </div>
   )
 }

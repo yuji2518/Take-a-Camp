@@ -26,37 +26,37 @@ class Map extends React.Component{
                     switch (cell.point) {
                       case 1:
                         return(
-                          cell.id === this.props.selected_cell_id ? 
-                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}></td>) : 
-                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}></td>)  
-                        ) 
+                          cell.id === this.props.selected_cell_id ?
+                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}></td>) :
+                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}></td>)
+                        )
                       case 2:
                         return(
-                          cell.id === this.props.selected_cell_id ? 
+                          cell.id === this.props.selected_cell_id ?
                           (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}>
                             <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
-                          </td>) : 
+                          </td>) :
                           (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}>
                             <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
-                          </td>)  
-                        ) 
+                          </td>)
+                        )
                       case 3:
                         return(
-                          cell.id === this.props.selected_cell_id ? 
+                          cell.id === this.props.selected_cell_id ?
                           (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}>
                              <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
-                           </td>) : 
+                           </td>) :
                           (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}>
                              <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
-                           </td>)  
+                           </td>)
 
-                        )                  
+                        )
                       default:
                         return(
-                          cell.id === this.props.selected_cell_id ? 
-                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}></td>) : 
-                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}></td>)  
-                        )                  
+                          cell.id === this.props.selected_cell_id ?
+                          (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}></td>) :
+                          (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}></td>)
+                        )
                     }
                   })}
                 </tr>
@@ -64,16 +64,16 @@ class Map extends React.Component{
             }
           </tbody>
         </table>
-        {this.props.selected_cell_id && !this.props.hasVote ? 
+        {this.props.selected_cell_id && !this.props.hasVote ?
         <Dialog unselect = {this.props.unselect} postVote = {this.props.postVote} selected_cell_id = {this.props.selected_cell_id} /> : "" }
 
-        {this.props.hasVote ? (<p className="finish-vote">投票は終了しました</p>) : ""}
+        {this.props.hasVote ? (<p className="finish-vote">投票は終了しました<br />投票は1日1回です</p>) : ""}
 
         <button className="info-button">
           <img src={`${process.env.PUBLIC_URL}/info.png`} alt="" />
         </button>
       </div>
-    )  
+    )
   }
 }
 
