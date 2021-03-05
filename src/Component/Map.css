@@ -55,6 +55,15 @@ td img{
   margin-left: 14px;
 }
 
+td .castle{
+  margin-left: 9px;
+}
+
+td .fire{
+  width: 40px;
+  margin-left: 5px;
+}
+
 .finish-vote{
   text-align: center;
   font-size: 18px;

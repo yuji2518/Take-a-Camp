@@ -38,6 +38,13 @@ class Map extends React.Component{
               this.props.cells.map((rowCells, i) => (
                 <tr key={i}>
                   {rowCells.map((cell, j) => {
+                    if((cell.row === 4 || cell.row === 6) && (cell.col === 4 || cell.col === 6)){
+                      return(
+                        <td key={cell.id}>
+                          <img src={`${process.env.PUBLIC_URL}/fireSmoke.svg`} className="fire" alt="" />
+                        </td>
+                      )
+                    }
                     switch (cell.point) {
                       case 1:
                         return(
@@ -59,10 +66,10 @@ class Map extends React.Component{
                         return(
                           cell.id === this.props.selected_cell_id ?
                           (<td key={cell.id} className="selected" onClick = {() => this.props.unselect()}>
-                             <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
+                             <img src={`${process.env.PUBLIC_URL}/castle.png`} className="castle"　alt="" />
                            </td>) :
                           (<td key={cell.id} className={`team_${cell.team_id}`} onClick = {() => this.props.selectCell(cell.id)}>
-                             <img src={`${process.env.PUBLIC_URL}/flag.png`} alt="" />
+                             <img src={`${process.env.PUBLIC_URL}/castle.png`} className="castle" alt="" />
                            </td>)
 
                         )
@@ -82,7 +89,7 @@ class Map extends React.Component{
         {this.props.selected_cell_id && !this.props.hasVote ?
         <Dialog unselect = {this.props.unselect} postVote = {this.props.postVote} selected_cell_id = {this.props.selected_cell_id} /> : "" }
 
-        {this.props.hasVote ? (<p className="finish-vote">投票は終了しました<br />投票は1日1回です</p>) : ""}
+        {this.props.hasVote ? (<p className="finish-vote">投票は終了しました</p>) : ""}
 
         <button className="info-button" onClick={() => this.openModal()}>
           <img src={`${process.env.PUBLIC_URL}/info.png`} alt="" />

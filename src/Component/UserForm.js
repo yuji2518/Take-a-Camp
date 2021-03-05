@@ -25,7 +25,7 @@ class UserForm extends React.Component{
     return(
       <div className="user-form">
         <input type='text' placeholder='ニックネーム' onChange={(event)=>this.onChangeName(event)}/>
-        <input type='text' placeholder='パスワード（英数字6文字以上20文字以内）' onChange={(event)=>this.onChangePassword(event)}/>
+        <input type='password' placeholder='パスワード（英数字6文字以上20文字以内）' onChange={(event)=>this.onChangePassword(event)}/>
         <button onClick = {() => this.props.submit(this.state.name, this.state.password)}>{this.props.button}</button>
       </div>
     )
