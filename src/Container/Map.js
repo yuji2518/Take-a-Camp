@@ -4,11 +4,26 @@ import { connect } from 'react-redux';
 import *as mapAction from '../Action/mapAction'
 import *as userAction from '../Action/userAction'
 import Dialog from "../Component/Dialog";
+import Modal from '../Component/Modal';
 
 
 class Map extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      isOpen:false,
+    }
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
   componentDidMount(){
     this.props.getStatus()
+  }
+  openModal(){
+    this.setState({isOpen:true});
+  }
+  closeModal(){
+    this.setState({isOpen:false});
   }
   render(){
     return(
@@ -69,9 +84,10 @@ class Map extends React.Component{
 
         {this.props.hasVote ? (<p className="finish-vote">投票は終了しました<br />投票は1日1回です</p>) : ""}
 
-        <button className="info-button">
+        <button className="info-button" onClick={() => this.openModal()}>
           <img src={`${process.env.PUBLIC_URL}/info.png`} alt="" />
         </button>
+        <Modal isOpen={this.state.isOpen} closeModal={() => {this.closeModal()}}/>
       </div>
     )
   }

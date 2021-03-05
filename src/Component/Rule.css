@@ -1,0 +1,17 @@
+.content{
+  z-index:2;
+  width:80%;
+  padding: 1em;
+  background:#fff;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.title{
+  text-align: center;
+  margin: auto;
+}
+
+li{
+  margin-top: 5px;
+}

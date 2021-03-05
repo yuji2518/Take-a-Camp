@@ -3,20 +3,23 @@
   margin-top: 90px
 }
 
-h1{
+.logo{
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .wrapStartBtn{
   text-align: center;
+  margin-top: 40px;
 }
 .startBtn{
-  border: none;
+  border-color: black;
+  border-radius: 5px;
   cursor: pointer;
   outline: none;
   appearance: none;
   width: 150px;
   height: 54px;
-  border-radius: 5px;
   font-size: 20px;
+  background-color: transparent;
 }
